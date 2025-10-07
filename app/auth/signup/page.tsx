@@ -17,7 +17,7 @@ export default function SignupPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [fullName, setFullName] = useState("")
-  const [role, setRole] = useState<"job_seeker" | "employer">("job_seeker")
+  const [role, setRole] = useState<"job_seeker" | "employer" | "admin">("job_seeker")
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -103,13 +103,14 @@ export default function SignupPage() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="role">I am a</Label>
-                  <Select value={role} onValueChange={(value: "job_seeker" | "employer") => setRole(value)}>
+                  <Select value={role} onValueChange={(value: "job_seeker" | "employer" | "admin") => setRole(value)}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="job_seeker">Job Seeker</SelectItem>
                       <SelectItem value="employer">Employer</SelectItem>
+                      <SelectItem value="admin">Admin</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

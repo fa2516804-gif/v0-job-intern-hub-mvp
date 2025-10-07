@@ -1,11 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { Index } from "@upstash/vector"
 import { createClient } from "@/lib/supabase/server"
-
-const index = new Index({
-  url: process.env.UPSTASH_SEARCH_REST_URL!,
-  token: process.env.UPSTASH_SEARCH_REST_TOKEN!,
-})
 
 export async function GET(request: NextRequest) {
   try {
